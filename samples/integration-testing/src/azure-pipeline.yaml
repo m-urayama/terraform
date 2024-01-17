@@ -51,11 +51,11 @@ stages:
         inputs:
           provider: 'azurerm'
           command: validate
-          backendServiceArm: 'testing-azure-connection'
+          environmentServiceNameAzureRM: 'testing-azure-connection'
       # Step 5: run Terraform plan to validate HCL syntax
       - task: TerraformTaskV3@3
         displayName: 'Run terraform plan'
         inputs:
           provider: 'azurerm'
           command: plan
-          backendServiceArm: 'testing-azure-connection'
+          environmentServiceNameAzureRM: 'testing-azure-connection'
