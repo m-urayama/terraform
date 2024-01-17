@@ -43,6 +43,8 @@ stages:
           backendServiceArm: 'testing-azure-connection'
           backendAzureRmResourceGroupName: 'dev-poc-mgcp-infra'
           backendAzureRmStorageAccountName: 'devpocmgcpinfra'
+          backendAzureRmContainerName: 'devpoctfstate'
+          backendAzureRmKey: 'tf/devpoc/terraform.tfstate'
       # Step 4: run Terraform validate to validate HCL syntax
       - task: TerraformTaskV3@3
         displayName: 'Run terraform validate'
