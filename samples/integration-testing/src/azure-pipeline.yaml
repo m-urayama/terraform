@@ -45,6 +45,7 @@ stages:
           backendAzureRmStorageAccountName: 'devpocmgcpinfra'
           backendAzureRmContainerName: 'devpoctfstate'
           backendAzureRmKey: 'tf/devpoc/terraform.tfstate'
+          workingDirectory: $(System.DefaultWorkingDirectory)
       # Step 4: run Terraform validate to validate HCL syntax
       - task: TerraformTaskV3@3
         displayName: 'Run terraform validate'
@@ -52,6 +53,7 @@ stages:
           provider: 'azurerm'
           command: validate
           environmentServiceNameAzureRM: 'testing-azure-connection'
+          workingDirectory: $(System.DefaultWorkingDirectory)
       # Step 5: run Terraform plan to validate HCL syntax
       - task: TerraformTaskV3@3
         displayName: 'Run terraform plan'
@@ -59,3 +61,4 @@ stages:
           provider: 'azurerm'
           command: plan
           environmentServiceNameAzureRM: 'testing-azure-connection'
+          workingDirectory: $(System.DefaultWorkingDirectory)
