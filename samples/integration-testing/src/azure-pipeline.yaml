@@ -40,18 +40,20 @@ stages:
         inputs:
           provider: 'azurerm'
           command: 'init'
-          backendServiceArm: "testing-azure-connection"
+          backendServiceArm: 'testing-azure-connection'
+          backendAzureRmResourceGroupName: 'dev-poc-mgcp-infra'
+          backendAzureRmStorageAccountName: 'devpocmgcpinfra'
       # Step 4: run Terraform validate to validate HCL syntax
       - task: TerraformTaskV3@3
         displayName: 'Run terraform validate'
         inputs:
           provider: 'azurerm'
           command: validate
-          backendServiceArm: "testing-azure-connection"
+          backendServiceArm: 'testing-azure-connection'
       # Step 5: run Terraform plan to validate HCL syntax
       - task: TerraformTaskV3@3
         displayName: 'Run terraform plan'
         inputs:
           provider: 'azurerm'
           command: plan
-          backendServiceArm: "testing-azure-connection"
+          backendServiceArm: 'testing-azure-connection'
